@@ -1,0 +1,173 @@
+body {
+    text-align: center;
+    --s: 90px;
+    /* control the size*/
+
+    --_g: radial-gradient(#0000 70%, #1a2030 71%);
+    background:
+        var(--_g), var(--_g) calc(var(--s)/2) calc(var(--s)/2),
+        conic-gradient(#0f9177 25%, #fdebad 0 50%, #d34434 0 75%, #b5d999 0);
+    background-size: var(--s) var(--s);
+
+}
+
+
+.main {
+    width: 1000px;
+    background-color: white;
+    margin: auto;
+    padding: 5vmin;
+}
+
+.field {
+    display: inline-block;
+}
+
+label {
+    display: block;
+}
+
+.list {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+.list td,
+.list th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.list tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+
+.list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #669999;
+    color: white;
+}
+
+.button-td {
+    padding: 0;
+    text-align: center;
+    width: 300px;
+    border: none;
+    background: transparent;
+}
+
+.new-button {
+    border-radius: 24px;
+    background-color: #33cc33;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 7px 96px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 30%;
+
+    &:hover {
+        background-color: #29a329;
+    }
+}
+
+.update-button {
+    border-radius: 24px;
+    background-color: #3366ff;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 30%;
+
+    &:hover {
+        background-color: #0040ff;
+    }
+}
+
+.delete-button {
+    border-radius: 24px;
+    background-color: #cc0000;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 30%;
+
+    &:hover {
+        background-color: #990000;
+    }
+}
+
+.add-button {
+    border-radius: 24px;
+    background-color: #33cc33;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 7px 96px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    &:hover {
+        background-color: #29a329;
+    }
+}
+
+.submit-button {
+    border-radius: 24px;
+    background-color: #3366ff;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 7px 96px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    &:hover {
+        background-color: #0040ff;
+    }
+}
+
+form input[type=text] {
+    background: transparent;
+    height: 100%;
+    width: 90%;
+    display: inline-block;
+    padding: 5%;
+
+    border: none;
+
+    &:focus {
+        outline: none;
+        color: black;
+    }
+
+}
+
+.list td.input-td {
+    margin: 0;
+    padding: 0;
+}

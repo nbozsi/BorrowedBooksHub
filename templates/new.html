@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotheca</title>
+
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Bibliotheca</h1>
+        <form action="/add" method="post">
+            <table class="list">
+                <tr>
+                    <td class="input-td">
+                        <input type="text" name="author" placeholder="{{lang['AUTHOR_placeholder']}}" autofocus>
+                    </td>
+                    <td class="input-td">
+                        <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}">
+                    </td>
+                    <td class="button-td">
+                        <button type="submit" class="add-button">OK</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

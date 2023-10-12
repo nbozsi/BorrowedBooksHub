@@ -1,0 +1,10 @@
+{
+    "TITLE": "Cím",
+    "TITLE_placeholder": "A könyv címe...",
+    "AUTHOR": "Szerző",
+    "AUTHOR_placeholder": "Az szerző neve...",
+    "ADD": "Új",
+    "UPDATE": "Szerkesztés",
+    "DELETE": "Törlés",
+    "SEARCH": "Keresés"
+}

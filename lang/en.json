@@ -1,0 +1,10 @@
+{
+    "TITLE": "Title",
+    "TITLE_placeholder": "Enter Book Title...",
+    "AUTHOR": "Author",
+    "AUTHOR_placeholder": "Enter Author Name...",
+    "ADD": "Add",
+    "UPDATE": "Update",
+    "DELETE": "Delete",
+    "SEARCH": "Search"
+}

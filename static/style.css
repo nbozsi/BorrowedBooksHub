@@ -51,7 +51,7 @@ label {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #669999;
+    background-color: #1a2030;
     color: white;
 }
 
@@ -65,25 +65,26 @@ label {
 
 .new-button {
     border-radius: 24px;
-    background-color: #33cc33;
+    background-color: #78ba45;
     /* Green */
     border: none;
     color: white;
-    padding: 7px 96px;
+    padding: 7px 7px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    width: 30%;
+    width: 18px;
+    height: 18px;
 
     &:hover {
-        background-color: #29a329;
+        background-color: #609537;
     }
 }
 
 .update-button {
     border-radius: 24px;
-    background-color: #3366ff;
+    background-color: #0f9177;
     /* Green */
     border: none;
     color: white;
@@ -95,13 +96,13 @@ label {
     width: 30%;
 
     &:hover {
-        background-color: #0040ff;
+        background-color: #0c735f;
     }
 }
 
 .delete-button {
     border-radius: 24px;
-    background-color: #cc0000;
+    background-color: #d34434;
     /* Green */
     border: none;
     color: white;
@@ -113,13 +114,13 @@ label {
     width: 30%;
 
     &:hover {
-        background-color: #990000;
+        background-color: #bc3829;
     }
 }
 
 .add-button {
     border-radius: 24px;
-    background-color: #33cc33;
+    background-color: #78ba45;
     /* Green */
     border: none;
     color: white;
@@ -130,7 +131,7 @@ label {
     font-size: 16px;
 
     &:hover {
-        background-color: #29a329;
+        background-color: #609537;
     }
 }
 

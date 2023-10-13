@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/courier-prime-sans');
+
 body {
     text-align: center;
     --s: 90px;
@@ -58,7 +60,7 @@ label {
 .button-td {
     padding: 0;
     text-align: center;
-    width: 300px;
+    width: 100px;
     border: none;
     background: transparent;
 }
@@ -74,6 +76,7 @@ label {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-family: 'Courier Prime Sans', sans-serif;
     width: 18px;
     height: 18px;
 
@@ -85,15 +88,16 @@ label {
 .update-button {
     border-radius: 24px;
     background-color: #0f9177;
-    /* Green */
     border: none;
     color: white;
-    padding: 7px 16px;
+    padding: 7px 7px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Courier Prime Sans', sans-serif;
     font-size: 16px;
-    width: 30%;
+    width: 18px;
+    height: 18px;
 
     &:hover {
         background-color: #0c735f;
@@ -103,45 +107,29 @@ label {
 .delete-button {
     border-radius: 24px;
     background-color: #d34434;
-    /* Green */
     border: none;
     color: white;
-    padding: 7px 16px;
+    padding: 7px 7px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Courier Prime Sans', sans-serif;
     font-size: 16px;
-    width: 30%;
+    width: 18px;
+    height: 18px;
 
     &:hover {
         background-color: #bc3829;
     }
 }
 
-.add-button {
-    border-radius: 24px;
-    background-color: #78ba45;
-    /* Green */
-    border: none;
-    color: white;
-    padding: 7px 96px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
-    &:hover {
-        background-color: #609537;
-    }
-}
 
 .submit-button {
     border-radius: 24px;
     background-color: #3366ff;
-    /* Green */
     border: none;
     color: white;
-    padding: 7px 96px;
+    padding: 7px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

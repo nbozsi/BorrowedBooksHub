@@ -85,9 +85,15 @@ def delete(request: Request, book_id: int, db: Session = Depends(get_db)):
     return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
 
 
-@app.post('/search')
-def search(request: Request, title: str = Form(""), author: str = Form(""), db: Session = Depends(get_db)):
+@app.post('/startsearch')
+def startsearch(request: Request, title: str = Form(""), author: str = Form(""), db: Session = Depends(get_db)):
 
+    url = app.url_path_for("search")+f"?title={title}&author={author}"
+    return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
+
+
+@app.get("/search")
+def search(request: Request, title: str, author: str, db: Session = Depends(get_db)):
     books = db.query(models.Book).filter(
         and_(func.lower(models.Book.title).contains(title.lower()), func.lower(models.Book.author).contains(author.lower()))).all()
     return templates.TemplateResponse("base.html", {"request": request, "lang": lang, "book_list": books})

@@ -3,6 +3,8 @@
     "TITLE_placeholder": "A könyv címe...",
     "AUTHOR": "Szerző",
     "AUTHOR_placeholder": "Az szerző neve...",
+    "RENTER": "Kölcsönző",
+    "RENTER_placeholder": "A kölcsönző neve...",
     "ADD": "Új",
     "UPDATE": "Szerkesztés",
     "DELETE": "Törlés",

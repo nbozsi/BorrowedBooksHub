@@ -23,8 +23,11 @@
                     <td class="input-td">
                         <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}">
                     </td>
+                    <td class="input-td">
+                        <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}">
+                    </td>
                     <td class="button-td">
-                        <button type="submit" class="add-button">{{lang["SEARCH"]}}</button>
+                        <button type="submit" class="submit-button">{{lang["SEARCH"]}}</button>
                     </td>
                 </tr>
             </table>
@@ -34,6 +37,7 @@
             <tr>
                 <th>{{lang["AUTHOR"]}}</th>
                 <th>{{lang["TITLE"]}}</th>
+                <th>{{lang["RENTER"]}}</th>
                 <td class="button-td"><a class="new-button" href="/new">+</a></td>
             </tr>
 
@@ -41,9 +45,14 @@
             <tr>
                 <td>{{ book.author }}</td>
                 <td>{{ book.title }}</td>
+                {% if book.renter %}
+                <td>{{book.renter}}</td>
+                {% else %}
+                <td>-</td>
+                {% endif %}
                 <td class="button-td">
-                    <a class="update-button" href="/change/{{ book.id }}">{{lang["UPDATE"]}}</a>
-                    <a class="delete-button" href="/delete/{{ book.id }}">{{lang["DELETE"]}}</a>
+                    <a class="update-button" href="/change/{{ book.id }}">/</a>
+                    <a class="delete-button" href="/delete/{{ book.id }}">x</a>
                 </td>
             </tr>
             {% endfor %}

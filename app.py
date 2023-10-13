@@ -45,12 +45,12 @@ def new(request: Request, db: Session = Depends(get_db)):
 
 
 @app.post("/add")
-def add(request: Request, title: str = Form(None), author: str = Form("Ismeretlen szerző"), db: Session = Depends(get_db)):
+def add(request: Request, title: str = Form(None), author: str = Form("Ismeretlen szerző"), renter: str = Form(None), db: Session = Depends(get_db)):
     if not title:
         url = app.url_path_for("new")
         return RedirectResponse(url=url, status_code=status.HTTP_303_SEE_OTHER)
 
-    new_book = models.Book(title=title, author=author)
+    new_book = models.Book(title=title, author=author, renter=renter)
     db.add(new_book)
     db.commit()
 
@@ -65,10 +65,11 @@ def change(request: Request, book_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/update/{book_id}")
-def update(request: Request, book_id: int, author: str = Form(...), title: str = Form(...), db: Session = Depends(get_db)):
+def update(request: Request, book_id: int, author: str = Form(...), title: str = Form(...), renter: str = Form(None), db: Session = Depends(get_db)):
     book = db.query(models.Book).filter(models.Book.id == book_id).first()
     book.title = title
     book.author = author
+    book.renter = renter
     db.commit()
 
     url = app.url_path_for("home")
@@ -86,14 +87,15 @@ def delete(request: Request, book_id: int, db: Session = Depends(get_db)):
 
 
 @app.post('/startsearch')
-def startsearch(request: Request, title: str = Form(""), author: str = Form(""), db: Session = Depends(get_db)):
+def startsearch(request: Request, title: str = Form(""), author: str = Form(""), renter: str = Form(""), db: Session = Depends(get_db)):
 
-    url = app.url_path_for("search")+f"?title={title}&author={author}"
+    url = app.url_path_for("search") + \
+        f"?title={title}&author={author}&renter={renter}"
     return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
 
 
 @app.get("/search")
-def search(request: Request, title: str, author: str, db: Session = Depends(get_db)):
+def search(request: Request, title: str, author: str, renter: str, db: Session = Depends(get_db)):
     books = db.query(models.Book).filter(
-        and_(func.lower(models.Book.title).contains(title.lower()), func.lower(models.Book.author).contains(author.lower()))).all()
+        and_(func.lower(models.Book.title).contains(title.lower()), func.lower(models.Book.author).contains(author.lower()), func.lower(models.Book.renter).contains(renter.lower()))).all()
     return templates.TemplateResponse("base.html", {"request": request, "lang": lang, "book_list": books})

@@ -104,4 +104,4 @@ def search(request: Request, title: str, author: str, renter: str, db: Session =
         books = books.filter(func.lower(
             models.Book.renter).contains(renter.lower()))
 
-    return templates.TemplateResponse("base.html", {"request": request, "lang": lang, "book_list": books.all()})
+    return templates.TemplateResponse("searchpage.html", {"request": request, "lang": lang, "author": author, "title": title, "renter": renter, "book_list": books.order_by(models.Book.author).all()})

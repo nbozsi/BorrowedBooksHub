@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BorrowedBooksHub</title>
+
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <h1>BorrowedBooksHub</h1>
+
+
+        <form action="/startsearch" method="post">
+            <table class="list">
+                <tr>
+                    {% if author!='' %}
+                    <td class="input-td">
+                        <input type="text" name="author" value="{{author}}" autofocus>
+                    </td>
+                    {% else %}
+                    <td class="input-td">
+                        <input type="text" name="author" placeholder="{{lang['AUTHOR_placeholder']}}" autofocus>
+                    </td>
+                    {% endif %}
+                    {% if title!='' %}
+                    <td class="input-td">
+                        <input type="text" name="title" value="{{title}}">
+                    </td>
+                    {% else %}
+                    <td class="input-td">
+                        <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}">
+                    </td>
+                    {% endif %}
+                    {% if renter!='' %}
+                    <td class="input-td">
+                        <input type="text" name="renter" value="{{renter}}">
+                    </td>
+                    {% else %}
+                    <td class="input-td">
+                        <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}">
+                    </td>
+                    {% endif %}
+                    <td class="button-td">
+                        <button type="submit" class="submit-button">{{lang["SEARCH"]}}</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <hr>
+        <table class="list">
+            <tr>
+                <th>{{lang["AUTHOR"]}}</th>
+                <th>{{lang["TITLE"]}}</th>
+                <th>{{lang["RENTER"]}}</th>
+                <td class="button-td"><a class="new-button" href="/new">+</a></td>
+            </tr>
+
+            {% for book in book_list %}
+            <tr>
+                <td>{{ book.author }}</td>
+                <td>{{ book.title }}</td>
+                {% if book.renter %}
+                <td>{{book.renter}}</td>
+                {% else %}
+                <td>-</td>
+                {% endif %}
+                <td class="button-td">
+                    <a class="update-button" href="/change/{{ book.id }}">/</a>
+                    <a class="delete-button" href="/delete/{{ book.id }}">x</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

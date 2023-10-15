@@ -21,6 +21,11 @@ body {
     padding: 5vmin;
 }
 
+.headpart {
+    display: inline-block;
+    width: 33%;
+}
+
 .field {
     display: inline-block;
 }

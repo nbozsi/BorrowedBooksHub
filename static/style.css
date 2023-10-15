@@ -160,3 +160,18 @@ form input[type=text] {
     margin: 0;
     padding: 0;
 }
+
+.home-button {
+    background-color: white;
+    color: #1a2030;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid white;
+    float: left;
+
+    &:hover {
+        border: 1px solid #1a2030;
+        background-color: whitesmoke;
+    }
+}

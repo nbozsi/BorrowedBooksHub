@@ -51,7 +51,7 @@ def add(request: Request, title: str = Form(None), author: str = Form("Ismeretle
     db.add(new_book)
     db.commit()
 
-    url = app.url_path_for("home")
+    url = app.url_path_for("new")
     return RedirectResponse(url=url, status_code=status.HTTP_303_SEE_OTHER)
 
 

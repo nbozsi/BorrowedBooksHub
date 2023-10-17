@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BorrowedBooksHub</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div class="main">
-        <h1>BorrowedBooksHub</h1>
+        <div class="headpart">
+            <a class="home-button" , href="/"><i class="fa fa-home"></i></a>
+        </div>
+        <div class="headpart">
+            <h1>BorrowedBooksHub</h1>
+        </div>
+        <div class="headpart">
+            <div class="counter">{{ book_list|length }} {{lang["BOOK"]}}</div>
+        </div>
 
 
         <form action="/startsearch" method="post">

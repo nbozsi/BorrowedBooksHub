@@ -1,4 +1,5 @@
 {
+    "BOOK": "könyv",
     "TITLE": "Cím",
     "TITLE_placeholder": "A könyv címe...",
     "AUTHOR": "Szerző",
@@ -9,5 +10,6 @@
     "UPDATE": "Szerkesztés",
     "DELETE": "Törlés",
     "DELETE_QUESTION": "Biztos törlöd",
-    "SEARCH": "Keresés"
+    "SEARCH": "Keresés",
+    "MATCHES": "találat"
 }

@@ -18,7 +18,9 @@
         <div class="headpart">
             <h1>BorrowedBooksHub</h1>
         </div>
-        <div class="headpart"></div>
+        <div class="headpart">
+            <div class="counter">{{ book_list|length }} {{lang["MATCHES"]}}</div>
+        </div>
         <form action="/startsearch" method="post">
             <table class="list">
                 <tr>

@@ -26,6 +26,15 @@ body {
     width: 33%;
 }
 
+.counter {
+    width: 100%;
+    text-align: right;
+    color: #1a2030;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+
 .field {
     display: inline-block;
 }

@@ -1,4 +1,5 @@
 {
+    "BOOK": "book",
     "TITLE": "Title",
     "TITLE_placeholder": "Enter Book Title...",
     "AUTHOR": "Author",
@@ -9,5 +10,6 @@
     "UPDATE": "Update",
     "DELETE": "Delete",
     "DELETE_QUESTION": "Are you sure you want to delete",
-    "SEARCH": "Search"
+    "SEARCH": "Search",
+    "MATCHES": "matches"
 }

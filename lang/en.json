@@ -8,5 +8,6 @@
     "ADD": "Add",
     "UPDATE": "Update",
     "DELETE": "Delete",
+    "DELETE_QUESTION": "Are you sure you want to delete",
     "SEARCH": "Search"
 }

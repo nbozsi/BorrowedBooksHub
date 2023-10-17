@@ -8,5 +8,6 @@
     "ADD": "Új",
     "UPDATE": "Szerkesztés",
     "DELETE": "Törlés",
+    "DELETE_QUESTION": "Biztos törlöd",
     "SEARCH": "Keresés"
 }

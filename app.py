@@ -73,6 +73,13 @@ def update(request: Request, book_id: int, author: str = Form("Ismeretlen szerz≈
     return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
 
 
+@app.get("/remove/{book_id}")
+def remove(request: Request, book_id: int, db: Session = Depends(get_db)):
+    book = db.query(models.Book).filter(models.Book.id == book_id).first()
+
+    return templates.TemplateResponse("remove.html", {"request": request, "lang": lang, "book": book})
+
+
 @app.get("/delete/{book_id}")
 def delete(request: Request, book_id: int, db: Session = Depends(get_db)):
     book = db.query(models.Book).filter(models.Book.id == book_id).first()

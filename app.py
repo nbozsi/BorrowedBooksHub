@@ -122,9 +122,10 @@ def export(request: Request, db: Session = Depends(get_db)):
     with db.get_bind().connect() as conn:
         my_data = conn.execute(text("SELECT * FROM books"))
 
+    output_file_name = "books_export.xlsx"
     headers = {
-        'Content-Disposition': 'attachment; filename="filename.xlsx"'
+        'Content-Disposition': f'attachment; filename="{output_file_name}"'
     }
     file = to_xlsx(my_data)
-    file.seek(0)
+
     return StreamingResponse(file, headers=headers)

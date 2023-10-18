@@ -16,4 +16,5 @@ def to_xlsx(data):
         ws1.append(d)
 
     wb.save(buffer)
+    buffer.seek(0)
     return buffer

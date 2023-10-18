@@ -1,15 +1,16 @@
 from fastapi import FastAPI, Request, Depends, Form, status
 from fastapi.staticfiles import StaticFiles
 
-from starlette.responses import RedirectResponse, FileResponse
+from starlette.responses import RedirectResponse, StreamingResponse
 from starlette.templating import Jinja2Templates
 
 from sqlalchemy.orm import Session
-from sqlalchemy import and_, or_, func
+from sqlalchemy import func, text
 
 import models
 from database import SessionLocal, engine
-import pandas as pd
+from to_xlsx import to_xlsx
+
 import os
 import json
 
@@ -118,8 +119,12 @@ def search(request: Request, title: str, author: str, renter: str, db: Session =
 
 @app.get('/export')
 def export(request: Request, db: Session = Depends(get_db)):
-    query = "SELECT * FROM books"  # query to collect record
-    df = pd.read_sql(query, db.get_bind(), index_col='id')  # create DataFrame
-    df.to_excel("exports/books.xlsx")
+    with db.get_bind().connect() as conn:
+        my_data = conn.execute(text("SELECT * FROM books"))
 
-    return FileResponse("exports/books.xlsx")
+    headers = {
+        'Content-Disposition': 'attachment; filename="filename.xlsx"'
+    }
+    file = to_xlsx(my_data)
+    file.seek(0)
+    return StreamingResponse(file, headers=headers)

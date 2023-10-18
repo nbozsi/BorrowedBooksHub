@@ -6,10 +6,6 @@
     "AUTHOR_placeholder": "Enter Author Name...",
     "RENTER": "Renter",
     "RENTER_placeholder": "Enter Renter Name...",
-    "ADD": "Add",
-    "UPDATE": "Update",
-    "DELETE": "Delete",
     "DELETE_QUESTION": "Are you sure you want to delete",
-    "SEARCH": "Search",
     "MATCHES": "matches"
 }

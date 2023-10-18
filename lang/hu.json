@@ -6,10 +6,6 @@
     "AUTHOR_placeholder": "Az szerző neve...",
     "RENTER": "Kölcsönző",
     "RENTER_placeholder": "A kölcsönző neve...",
-    "ADD": "Új",
-    "UPDATE": "Szerkesztés",
-    "DELETE": "Törlés",
     "DELETE_QUESTION": "Biztos törlöd",
-    "SEARCH": "Keresés",
     "MATCHES": "találat"
 }

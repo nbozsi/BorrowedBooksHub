@@ -52,7 +52,7 @@
                     </td>
                     {% endif %}
                     <td class="button-td">
-                        <button type="submit" class="submit-button">{{lang["SEARCH"]}}</button>
+                        <button type="submit" class="submit-button"><i class="fa fa-search"></i></button>
                     </td>
                 </tr>
             </table>
@@ -63,7 +63,7 @@
                 <th>{{lang["AUTHOR"]}}</th>
                 <th>{{lang["TITLE"]}}</th>
                 <th>{{lang["RENTER"]}}</th>
-                <td class="button-td"><a class="new-button" href="/new">+</a></td>
+                <td class="button-td"><a class="new-button" href="/new"><i class="fa fa-plus"></i></a></td>
             </tr>
 
             {% for book in book_list %}
@@ -76,8 +76,8 @@
                 <td>-</td>
                 {% endif %}
                 <td class="button-td">
-                    <a class="update-button" href="/change/{{ book.id }}">/</a>
-                    <a class="delete-button" href="/remove/{{ book.id }}">x</a>
+                    <a class="update-button" href="/change/{{ book.id }}"><i class="fa fa-pencil"></i></a>
+                    <a class="delete-button" href="/remove/{{ book.id }}"><i class="fa fa-remove"></i></a>
                 </td>
             </tr>
             {% endfor %}

@@ -79,6 +79,12 @@ label {
     background: transparent;
 }
 
+.list th.button-td {
+    padding: 8px;
+    text-align: center;
+    width: 100px;
+}
+
 .new-button {
     border-radius: 24px;
     background-color: #78ba45;
@@ -100,10 +106,9 @@ label {
 }
 
 .export-button {
-    border-radius: 24px;
+
     background-color: #217346;
-    /* Green */
-    border: none;
+    border: 1px solid white;
     color: white;
     padding: 7px 7px;
     text-align: center;
@@ -194,6 +199,7 @@ form input[type=text] {
     margin: 0;
     padding: 0;
 }
+
 
 .home-button {
     background-color: white;

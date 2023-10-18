@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Depends, Form, status
 from fastapi.staticfiles import StaticFiles
 
-from starlette.responses import RedirectResponse
+from starlette.responses import RedirectResponse, FileResponse
 from starlette.templating import Jinja2Templates
 
 from sqlalchemy.orm import Session
@@ -9,6 +9,8 @@ from sqlalchemy import and_, or_, func
 
 import models
 from database import SessionLocal, engine
+import pandas as pd
+import os
 import json
 
 
@@ -112,3 +114,12 @@ def search(request: Request, title: str, author: str, renter: str, db: Session =
             models.Book.renter).contains(renter.lower()))
 
     return templates.TemplateResponse("searchpage.html", {"request": request, "lang": lang, "author": author, "title": title, "renter": renter, "book_list": books.order_by(models.Book.author).all()})
+
+
+@app.get('/export')
+def export(request: Request, db: Session = Depends(get_db)):
+    query = "SELECT * FROM books"  # query to collect record
+    df = pd.read_sql(query, db.get_bind(), index_col='id')  # create DataFrame
+    df.to_excel("exports/books.xlsx")
+
+    return FileResponse("exports/books.xlsx")

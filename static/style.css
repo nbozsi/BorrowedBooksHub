@@ -99,6 +99,26 @@ label {
     }
 }
 
+.export-button {
+    border-radius: 24px;
+    background-color: #217346;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Courier Prime Sans', sans-serif;
+    width: 18px;
+    height: 18px;
+
+    &:hover {
+        background-color: #174f30;
+    }
+}
+
 .update-button {
     border-radius: 24px;
     background-color: #0f9177;

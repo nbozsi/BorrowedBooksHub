@@ -24,11 +24,13 @@ body {
 .headrow {
     display: flex;
     justify-content: space-evenly;
-    height: 90px;
+    height: 50px;
 }
 
 .headpart {
+    display: flex;
     width: 33%;
+    align-items: center;
 }
 
 .counter {
@@ -76,16 +78,16 @@ label {
     color: white;
 }
 
-.button-td {
-    padding: 0;
+.list td.button-td {
+    padding: 0px;
     text-align: center;
     width: 100px;
-    border: none;
+    height: 40px;
     background: transparent;
 }
 
 .list th.button-td {
-    padding: 8px;
+    padding: 0px;
     text-align: center;
     width: 100px;
 }
@@ -169,15 +171,13 @@ label {
 
 
 .submit-button {
-    border-radius: 24px;
     background-color: #3366ff;
     border: none;
     color: white;
-    padding: 7px 24px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
+    padding: 14px;
+    width: 100px;
 
     &:hover {
         background-color: #0040ff;

@@ -12,14 +12,16 @@
 
 <body>
     <div class="main">
-        <div class="headpart">
-            <a class="home-button" , href="/"><i class="fa fa-home"></i></a>
-        </div>
-        <div class="headpart">
-            <h1>BorrowedBooksHub</h1>
-        </div>
-        <div class="headpart">
-            <div class="counter">{{ book_list|length }} {{lang["MATCHES"]}}</div>
+        <div class="headrow">
+            <div class="headpart">
+                <a class="home-button" , href="/"><i class="fa fa-home"></i></a>
+            </div>
+            <div class="headpart">
+                <h1>BorrowedBooksHub</h1>
+            </div>
+            <div class="headpart">
+                <div class="counter">{{ book_list|length }} {{lang["MATCHES"]}}</div>
+            </div>
         </div>
         <form action="/startsearch" method="post">
             <table class="list">

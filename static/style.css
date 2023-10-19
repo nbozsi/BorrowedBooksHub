@@ -21,8 +21,13 @@ body {
     padding: 5vmin;
 }
 
+.headrow {
+    display: flex;
+    justify-content: space-evenly;
+    height: 90px;
+}
+
 .headpart {
-    display: inline-block;
     width: 33%;
 }
 

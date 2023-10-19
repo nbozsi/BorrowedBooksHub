@@ -12,13 +12,15 @@
 
 <body>
     <div class="main">
-        <div class="headpart">
-            <a class="home-button" , href="/"><i class="fa fa-home"></i></a>
+        <div class="headrow">
+            <div class="headpart">
+                <a class="home-button" , href="/"><i class="fa fa-home"></i></a>
+            </div>
+            <div class="headpart">
+                <h1>BorrowedBooksHub</h1>
+            </div>
+            <div class="headpart"></div>
         </div>
-        <div class="headpart">
-            <h1>BorrowedBooksHub</h1>
-        </div>
-        <div class="headpart"></div>
 
         <div class="prompt">{{lang["DELETE_QUESTION"]}}: <i>"{{book.author}} - {{book.title}}"</i> ?</div>
         <a class="delete-button" href="/delete/{{ book.id }}"><i class="fa fa-remove"></i></a>

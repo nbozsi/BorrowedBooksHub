@@ -10,8 +10,6 @@ from sqlalchemy import func, text
 import models
 from database import SessionLocal, engine
 from to_xlsx import to_xlsx
-
-import os
 import json
 
 

@@ -52,17 +52,16 @@ def add(request: Request, title: str = Form(None), author: str = Form("Ismeretle
     db.add(new_book)
     db.commit()
 
-    url = app.url_path_for("new")
-    return RedirectResponse(url=url, status_code=status.HTTP_303_SEE_OTHER)
+    return templates.TemplateResponse("added_box.html", {"request": request, "book": new_book})
 
 
 @app.get("/change/{book_id}")
 def change(request: Request, book_id: int, db: Session = Depends(get_db)):
     book = db.query(models.Book).filter(models.Book.id == book_id).first()
-    return templates.TemplateResponse("change.html", {"request": request, "lang": lang, "book": book})
+    return templates.TemplateResponse("update_row.html", {"request": request, "lang": lang, "book": book})
 
 
-@app.post("/update/{book_id}")
+@app.put("/update/{book_id}")
 def update(request: Request, book_id: int, author: str = Form("Ismeretlen szerz≈ë"), title: str = Form(...), renter: str = Form(None), db: Session = Depends(get_db)):
     book = db.query(models.Book).filter(models.Book.id == book_id).first()
     book.title = title
@@ -70,8 +69,7 @@ def update(request: Request, book_id: int, author: str = Form("Ismeretlen szerz≈
     book.renter = renter
     db.commit()
 
-    url = app.url_path_for("home")
-    return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
+    return templates.TemplateResponse("row.html", {"request": request, "lang": lang, "book": book})
 
 
 @app.get("/remove/{book_id}")

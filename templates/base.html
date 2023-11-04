@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BorrowedBooksHub</title>
 
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
 </head>
@@ -45,31 +46,33 @@
         </form>
         <hr>
         <table class="list">
-            <tr>
-                <th>{{lang["AUTHOR"]}}</th>
-                <th>{{lang["TITLE"]}}</th>
-                <th>{{lang["RENTER"]}}</th>
-                <th class="button-td">
-                    <a class="new-button" href="/new"><i class="fa fa-plus"></i></a>
-                    <a class="export-button" href="/export"><i class="fa fa-file-excel-o"></i></a>
-                </th>
-            </tr>
+            <tbody hx-target="closest tr" hx-swap="outerHTML">
+                <tr>
+                    <th>{{lang["AUTHOR"]}}</th>
+                    <th>{{lang["TITLE"]}}</th>
+                    <th>{{lang["RENTER"]}}</th>
+                    <th class="button-td">
+                        <a class="new-button" href="/new"><i class="fa fa-plus"></i></a>
+                        <a class="export-button" href="/export"><i class="fa fa-file-excel-o"></i></a>
+                    </th>
+                </tr>
 
-            {% for book in book_list %}
-            <tr>
-                <td>{{ book.author }}</td>
-                <td>{{ book.title }}</td>
-                {% if book.renter %}
-                <td>{{book.renter}}</td>
-                {% else %}
-                <td>-</td>
-                {% endif %}
-                <td class="button-td">
-                    <a class="update-button" href="/change/{{ book.id }}"><i class="fa fa-pencil"></i></a>
-                    <a class="delete-button" href="/remove/{{ book.id }}"><i class="fa fa-remove"></i></a>
-                </td>
-            </tr>
-            {% endfor %}
+                {% for book in book_list %}
+                <tr hx-target="this" hx-swap="outerHTML">
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.title }}</td>
+                    {% if book.renter %}
+                    <td>{{book.renter}}</td>
+                    {% else %}
+                    <td>-</td>
+                    {% endif %}
+                    <td class="button-td">
+                        <a class="update-button" hx-get="/change/{{ book.id }}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete-button" href="/remove/{{ book.id }}"><i class="fa fa-remove"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </div>
 </body>

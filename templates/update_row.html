@@ -1,0 +1,21 @@
+<tr>
+    <td class="input-td">
+        <input type="text" name="author" value="{{book.author}}" autofocus>
+    </td>
+    <td class="input-td">
+        <input type="text" name="title" value="{{book.title}}" required>
+    </td>
+    {% if book.renter %}
+    <td class="input-td">
+        <input type="text" name="renter" value="{{book.renter}}">
+    </td>
+    {% else %}
+    <td class="input-td">
+        <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}">
+    </td>
+    {% endif %}
+    <td class="button-td">
+        <button hx-put="/update/{{book.id}}" hx-include="closest tr" class="submit-button"><i
+                class="fa fa-check"></i></button>
+    </td>
+</tr>

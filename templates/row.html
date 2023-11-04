@@ -1,0 +1,13 @@
+<tr hx-target="this" hx-swap="outerHTML">
+    <td>{{ book.author }}</td>
+    <td>{{ book.title }}</td>
+    {% if book.renter %}
+    <td>{{book.renter}}</td>
+    {% else %}
+    <td>-</td>
+    {% endif %}
+    <td class="button-td">
+        <a class="update-button" hx-get="/change/{{ book.id }}"><i class="fa fa-pencil"></i></a>
+        <a class="delete-button" href="/remove/{{ book.id }}"><i class="fa fa-remove"></i></a>
+    </td>
+</tr>

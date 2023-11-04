@@ -29,15 +29,33 @@
         <form action="/startsearch" method="post">
             <table class="list">
                 <tr>
+                    {% if author %}
+                    <td class="input-td">
+                        <input type="text" name="author" value="{{author}}" autofocus>
+                    </td>
+                    {% else %}
                     <td class="input-td">
                         <input type="text" name="author" placeholder="{{lang['AUTHOR_placeholder']}}" autofocus>
                     </td>
+                    {% endif %}
+                    {% if title %}
+                    <td class="input-td">
+                        <input type="text" name="title" value="{{title}}">
+                    </td>
+                    {% else %}
                     <td class="input-td">
                         <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}">
                     </td>
+                    {% endif %}
+                    {% if renter %}
+                    <td class="input-td">
+                        <input type="text" name="renter" value="{{renter}}">
+                    </td>
+                    {% else %}
                     <td class="input-td">
                         <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}">
                     </td>
+                    {% endif %}
                     <td class="button-td">
                         <button type="submit" class="submit-button"><i class="fa fa-search"></i></button>
                     </td>

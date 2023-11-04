@@ -184,7 +184,8 @@ label {
     }
 }
 
-form input[type=text] {
+
+html body div.main table.list tbody tr td.input-td input {
     background: transparent;
     height: 100%;
     width: 90%;

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Depends, Form, status
 from fastapi.staticfiles import StaticFiles
 
-from starlette.responses import RedirectResponse, StreamingResponse
+from starlette.responses import RedirectResponse, StreamingResponse, HTMLResponse
 from starlette.templating import Jinja2Templates
 
 from sqlalchemy.orm import Session
@@ -12,6 +12,8 @@ from database import SessionLocal, engine
 from to_xlsx import to_xlsx
 import json
 
+# TODO sqlite accent case sensitivity
+# TODO new record on base page
 
 with open("./lang/hu.json", "r", encoding="utf-8") as f:
     lang = json.load(f)
@@ -72,21 +74,13 @@ def update(request: Request, book_id: int, author: str = Form("Ismeretlen szerz≈
     return templates.TemplateResponse("row.html", {"request": request, "lang": lang, "book": book})
 
 
-@app.get("/remove/{book_id}")
-def remove(request: Request, book_id: int, db: Session = Depends(get_db)):
-    book = db.query(models.Book).filter(models.Book.id == book_id).first()
-
-    return templates.TemplateResponse("remove.html", {"request": request, "lang": lang, "book": book})
-
-
-@app.get("/delete/{book_id}")
-def delete(request: Request, book_id: int, db: Session = Depends(get_db)):
-    book = db.query(models.Book).filter(models.Book.id == book_id).first()
+@app.delete("/delete/{book_id}")
+def delete_book(request: Request, book_id: int, db: Session = Depends(get_db)):
+    book = db.get(models.Book, book_id)
     db.delete(book)
     db.commit()
 
-    url = app.url_path_for("home")
-    return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
+    return HTMLResponse("")
 
 
 @app.post('/startsearch')

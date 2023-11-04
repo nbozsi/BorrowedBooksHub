@@ -86,7 +86,8 @@
                     {% endif %}
                     <td class="button-td">
                         <a class="update-button" hx-get="/change/{{ book.id }}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete-button" href="/remove/{{ book.id }}"><i class="fa fa-remove"></i></a>
+                        <a class="delete-button" hx-confirm="Are you sure?" hx-delete="/delete/{{ book.id }}"><i
+                                class="fa fa-remove"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

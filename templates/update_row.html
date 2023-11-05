@@ -1,13 +1,13 @@
 <tr>
     <td class="input-td">
-        <input type="text" name="author" value="{{book.author}}" autofocus>
+        <input type="text" name="author" placeholder="{{lang['AUTHOR_placeholder']}}" value="{{book.author}}" autofocus>
     </td>
     <td class="input-td">
-        <input type="text" name="title" value="{{book.title}}" required>
+        <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}" value="{{book.title}}" required>
     </td>
     {% if book.renter %}
     <td class="input-td">
-        <input type="text" name="renter" value="{{book.renter}}">
+        <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}" value="{{book.renter}}">
     </td>
     {% else %}
     <td class="input-td">

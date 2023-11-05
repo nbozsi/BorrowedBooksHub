@@ -31,7 +31,8 @@
                 <tr>
                     {% if author %}
                     <td class="input-td">
-                        <input type="text" name="author" value="{{author}}" autofocus>
+                        <input type="text" name="author" placeholder="{{lang['AUTHOR_placeholder']}}" autofocus
+                            value="{{author}}">
                     </td>
                     {% else %}
                     <td class="input-td">
@@ -40,7 +41,7 @@
                     {% endif %}
                     {% if title %}
                     <td class="input-td">
-                        <input type="text" name="title" value="{{title}}">
+                        <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}" value="{{title}}">
                     </td>
                     {% else %}
                     <td class="input-td">
@@ -49,7 +50,8 @@
                     {% endif %}
                     {% if renter %}
                     <td class="input-td">
-                        <input type="text" name="renter" value="{{renter}}">
+                        <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}"
+                            value="{{renter}}">
                     </td>
                     {% else %}
                     <td class="input-td">

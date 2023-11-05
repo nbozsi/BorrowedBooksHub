@@ -10,6 +10,7 @@ from sqlalchemy import func, text
 import models
 from database import SessionLocal, engine
 from to_xlsx import to_xlsx
+from tools import my_lower
 import json
 
 # TODO sqlite accent case sensitivity
@@ -94,14 +95,14 @@ def startsearch(request: Request, title: str = Form(""), author: str = Form(""),
 def search(request: Request, title: str, author: str, renter: str, db: Session = Depends(get_db)):
     books = db.query(models.Book)
     if author != '':
-        books = books.filter(func.lower(
-            models.Book.author).contains(author.lower()))
+        books = books.filter(
+            my_lower(models.Book.author).contains(author.lower()))
     if title != '':
-        books = books.filter(func.lower(
-            models.Book.title).contains(title.lower()))
+        books = books.filter(
+            my_lower(models.Book.title).contains(title.lower()))
     if renter != '':
-        books = books.filter(func.lower(
-            models.Book.renter).contains(renter.lower()))
+        books = books.filter(
+            my_lower(models.Book.renter).contains(renter.lower()))
 
     return templates.TemplateResponse("base.html", {"request": request, "lang": lang, "author": author, "title": title, "renter": renter, "book_list": books.order_by(models.Book.author).all()})
 

@@ -100,12 +100,12 @@ def startsearch(request: Request, title: str = Form(""), author: str = Form(""),
 def search(request: Request, title: str, author: str, renter: str, db: Session = Depends(get_db)):
     """Returns records that contains the search words, sorted by author name."""
     books = db.query(models.Book)
-    if author != '':
-        books = books.filter(
-            my_lower(models.Book.author).contains(author.lower()))
-    if title != '':
-        books = books.filter(
-            my_lower(models.Book.title).contains(title.lower()))
+
+    books = books.filter(
+        my_lower(models.Book.author).contains(author.lower()))
+    books = books.filter(
+        my_lower(models.Book.title).contains(title.lower()))
+    # renter can be None, and None does not contain ''
     if renter != '':
         books = books.filter(
             my_lower(models.Book.renter).contains(renter.lower()))

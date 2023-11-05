@@ -13,7 +13,6 @@ from to_xlsx import to_xlsx
 import json
 
 # TODO sqlite accent case sensitivity
-# TODO new record on base page
 
 with open("./lang/hu.json", "r", encoding="utf-8") as f:
     lang = json.load(f)
@@ -44,28 +43,28 @@ def home(request: Request, db: Session = Depends(get_db)):
 
 @app.get("/new")
 def new(request: Request, db: Session = Depends(get_db)):
-    return templates.TemplateResponse("new.html", {"request": request, "lang": lang})
+    return templates.TemplateResponse("new_row.html", {"request": request, "lang": lang})
 
 
-@app.post("/add")
+@app.put("/add")
 def add(request: Request, title: str = Form(None), author: str = Form("Ismeretlen szerző"), renter: str = Form(None), db: Session = Depends(get_db)):
 
     new_book = models.Book(title=title, author=author, renter=renter)
     db.add(new_book)
     db.commit()
 
-    return templates.TemplateResponse("added_box.html", {"request": request, "book": new_book})
+    return templates.TemplateResponse("row.html", {"request": request, "book": new_book})
 
 
 @app.get("/change/{book_id}")
 def change(request: Request, book_id: int, db: Session = Depends(get_db)):
-    book = db.query(models.Book).filter(models.Book.id == book_id).first()
+    book = db.get(models.Book, book_id)
     return templates.TemplateResponse("update_row.html", {"request": request, "lang": lang, "book": book})
 
 
 @app.put("/update/{book_id}")
 def update(request: Request, book_id: int, author: str = Form("Ismeretlen szerző"), title: str = Form(...), renter: str = Form(None), db: Session = Depends(get_db)):
-    book = db.query(models.Book).filter(models.Book.id == book_id).first()
+    book = db.get(models.Book, book_id)
     book.title = title
     book.author = author
     book.renter = renter

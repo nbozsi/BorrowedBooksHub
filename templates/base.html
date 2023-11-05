@@ -65,12 +65,12 @@
         <hr>
         <table class="list">
             <tbody hx-target="closest tr" hx-swap="outerHTML">
-                <tr>
+                <tr hx-target="this" hx-swap="afterend">
                     <th>{{lang["AUTHOR"]}}</th>
                     <th>{{lang["TITLE"]}}</th>
                     <th>{{lang["RENTER"]}}</th>
                     <th class="button-td">
-                        <a class="new-button" href="/new"><i class="fa fa-plus"></i></a>
+                        <a class="new-button" hx-get="/new"><i class="fa fa-plus"></i></a>
                         <a class="export-button" href="/export"><i class="fa fa-file-excel-o"></i></a>
                     </th>
                 </tr>

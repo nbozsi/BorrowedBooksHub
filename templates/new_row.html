@@ -1,0 +1,14 @@
+<tr>
+    <td class="input-td">
+        <input type="text" name="author" placeholder="{{lang['AUTHOR_placeholder']}}" autofocus>
+    </td>
+    <td class="input-td">
+        <input type="text" name="title" placeholder="{{lang['TITLE_placeholder']}}" required>
+    </td>
+    <td class="input-td">
+        <input type="text" name="renter" placeholder="{{lang['RENTER_placeholder']}}">
+    </td>
+    <td class="button-td">
+        <button hx-put="/add" hx-include="closest tr" class="submit-button"><i class="fa fa-check"></i></button>
+    </td>
+</tr>

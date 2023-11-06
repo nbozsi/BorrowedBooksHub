@@ -33,6 +33,10 @@ body {
     align-items: center;
 }
 
+h1 {
+    margin: auto;
+}
+
 .counter {
     width: 100%;
     text-align: right;

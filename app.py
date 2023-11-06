@@ -56,7 +56,7 @@ def add(request: Request, title: str = Form(None), author: str = Form("Ismeretle
     db.add(new_book)
     db.commit()
 
-    return templates.TemplateResponse("row.html", {"request": request, "book": new_book})
+    return templates.TemplateResponse("row.html", {"request": request, "book": new_book}, headers={"HX-Trigger": "addedRecord"})
 
 
 @app.get("/change/{book_id}")
@@ -85,7 +85,7 @@ def delete_book(request: Request, book_id: int, db: Session = Depends(get_db)):
     db.delete(book)
     db.commit()
 
-    return HTMLResponse("")
+    return HTMLResponse("", headers={"HX-Trigger": "deletedRecord"})
 
 
 @app.post('/startsearch')
@@ -126,3 +126,11 @@ def export(request: Request, db: Session = Depends(get_db)):
     file = to_xlsx(my_data)
 
     return StreamingResponse(file, headers=headers)
+
+
+@app.get('/count_records')
+def count(request: Request, db: Session = Depends(get_db)):
+    """Returns the number of records formatted '<count> Books'."""
+    record_count = db.query(models.Book).count()
+
+    return HTMLResponse(f"{record_count} {lang['BOOK']}")

@@ -21,7 +21,8 @@
                 <h1>BorrowedBooksHub</h1>
             </div>
             <div class="headpart">
-                <div class="counter">{{ book_list|length }} {{lang["BOOK"]}}</div>
+                <div class="counter" hx-get="/count_records" hx-swap="innerHTML" hx-target="this"
+                    hx-trigger="load, deletedRecord from:body, addedRecord from:body"></div>
             </div>
         </div>
 

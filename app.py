@@ -128,8 +128,8 @@ def export(request: Request, db: Session = Depends(get_db)):
     return StreamingResponse(file, headers=headers)
 
 
-@app.get('/count_records')
-def count(request: Request, db: Session = Depends(get_db)):
+@app.get('/get_count')
+def count_records(request: Request, db: Session = Depends(get_db)):
     """Returns the number of records formatted '<count> Books'."""
     record_count = db.query(models.Book).count()
 

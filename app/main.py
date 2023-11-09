@@ -10,21 +10,22 @@ from sqlalchemy import func, text
 from app import models
 from app.database import SessionLocal, engine
 
-from app.to_xlsx import to_xlsx
-from app.tools import my_lower
+from app.db_tools import my_lower, to_xlsx
+from app import utils
 import json
 
 
-with open("./lang/hu.json", "r", encoding="utf-8") as f:
+with open(utils.get_project_root()/"lang/hu.json", "r", encoding="utf-8") as f:
     lang = json.load(f)
 
 
 models.Base.metadata.create_all(bind=engine)
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory=utils.get_project_root() / "templates")
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=utils.get_project_root() / "static"),
+          name="static")
 # Dependency
 
 

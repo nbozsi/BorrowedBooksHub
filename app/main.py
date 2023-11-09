@@ -1,18 +1,18 @@
+import json
+
 from fastapi import FastAPI, Request, Depends, Form, status
 from fastapi.staticfiles import StaticFiles
 
 from starlette.responses import RedirectResponse, StreamingResponse, HTMLResponse
 from starlette.templating import Jinja2Templates
 
-from sqlalchemy.orm import Session
 from sqlalchemy import func, text
+from sqlalchemy.orm import Session
 
 from app import models
-from app.database import SessionLocal, engine
-
-from app.db_tools import my_lower, to_xlsx
 from app import utils
-import json
+from app.database import SessionLocal, engine
+from app.db_tools import my_lower, to_xlsx
 
 
 with open(utils.get_project_root()/"lang/hu.json", "r", encoding="utf-8") as f:

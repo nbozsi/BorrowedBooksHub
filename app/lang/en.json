@@ -6,6 +6,6 @@
     "AUTHOR_placeholder": "Enter Author Name...",
     "RENTER": "Renter",
     "RENTER_placeholder": "Enter Renter Name...",
-    "DELETE_QUESTION": "Are you sure you want to delete",
+    "DELETE_QUESTION": "Are you sure you want to delete this book?",
     "MATCHES": "matches"
 }
